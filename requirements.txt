@@ -3,3 +3,4 @@ pyarrow
 matplotlib
 numpy
 seaborn  
+yfinance
