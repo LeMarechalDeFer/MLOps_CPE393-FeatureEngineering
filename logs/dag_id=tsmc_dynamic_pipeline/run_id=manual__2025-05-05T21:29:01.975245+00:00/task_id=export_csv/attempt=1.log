@@ -1,0 +1,3 @@
+{"timestamp":"2025-05-05T21:29:24.075759","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-05-05T21:29:24.076634","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/tsmc_pipeline_yfinance.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-05-05T21:29:26.029545","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

@@ -1,0 +1,6 @@
+{"timestamp":"2025-05-05T21:18:27.186317","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-05-05T21:18:27.188112","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/tsmc_pipeline_yfinance.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-05-05T21:18:29.903576Z","level":"info","event":"YF.download() has changed argument auto_adjust default to True","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-05T21:18:30.582823","level":"error","event":"\n1 Failed download:","logger":"yfinance"}
+{"timestamp":"2025-05-05T21:18:30.583139","level":"error","event":"['TSM']: YFPricesMissingError('possibly delisted; no price data found  (1d 2025-05-03 -> 2025-05-05)')","logger":"yfinance"}
+{"timestamp":"2025-05-05T21:18:30.602707","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

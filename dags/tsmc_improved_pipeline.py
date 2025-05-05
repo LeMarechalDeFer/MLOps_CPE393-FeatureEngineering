@@ -110,6 +110,7 @@ def build_views():
     
     # Daily trend view
     daily = df[["close","ma_close_30d","rsi_14"]].dropna().reset_index()
+    daily = daily.rename(columns={"index": "date"})
     daily.to_csv("/opt/airflow/data/views/daily_trend.csv", index=False)
     
     # Volatility spikes view
@@ -118,40 +119,38 @@ def build_views():
     spikes = df[["volatility_abs"]].copy()
     spikes["is_spike"] = spikes["volatility_abs"] > (mean_vol + 2 * std_vol)
     spikes = spikes.reset_index()
+    spikes = spikes.rename(columns={"index": "date"})
     spikes.to_csv("/opt/airflow/data/views/volatility_spikes.csv", index=False)
     
     # Weekly summary view
     weekly = df.resample("W").agg({
         "close": ["first","last","mean"],
         "volume": "sum",
-        # "return": "std",
         "volatility_abs": "max"
     })
     weekly.columns = ["_".join(col) for col in weekly.columns]
     weekly = weekly.reset_index()
+    weekly = weekly.rename(columns={"index": "date"})
     weekly.to_csv("/opt/airflow/data/views/weekly_summary.csv", index=False)
     
     # Monthly summary view
     monthly = df.resample("M").agg({
         "close": ["first","last","mean"],
         "volume": "sum",
-        # "return": "std"
     })
     monthly.columns = ["_".join(col) for col in monthly.columns]
     monthly = monthly.reset_index()
+    monthly = monthly.rename(columns={"index": "date"})
     monthly.to_csv("/opt/airflow/data/views/monthly_summary.csv", index=False)
 
 
 def generate_visuals():
     logging.info("Generating visuals")
     os.makedirs("/opt/airflow/data/plots", exist_ok=True)
-    
-    # Daily price trend plot with improved time formatting
-    daily = pd.read_csv("/opt/airflow/data/views/daily_trend.csv")
+
+    # Daily Price Trend
+    daily = pd.read_csv("/opt/airflow/data/views/daily_trend.csv", parse_dates=["date"], index_col="date")
     logging.info(f"Available columns in daily: {daily.columns.tolist()}")
-    date_col = daily.columns[0] 
-    daily[date_col] = pd.to_datetime(daily[date_col])
-    daily = daily.set_index(date_col)
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(daily.index, daily["close"], label="Closing Price")
     ax.plot(daily.index, daily["ma_close_30d"], "--", label="MA30")
@@ -167,12 +166,10 @@ def generate_visuals():
     plt.tight_layout()
     plt.savefig("/opt/airflow/data/plots/daily_price_trend.png")
     plt.close()
-    
-    spikes = pd.read_csv("/opt/airflow/data/views/volatility_spikes.csv")
+
+    # Volatility Spikes
+    spikes = pd.read_csv("/opt/airflow/data/views/volatility_spikes.csv", parse_dates=["date"], index_col="date")
     logging.info(f"Available columns in spikes: {spikes.columns.tolist()}")
-    date_col = spikes.columns[0] 
-    spikes[date_col] = pd.to_datetime(spikes[date_col])
-    spikes = spikes.set_index(date_col)
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(spikes.index, spikes["volatility_abs"], label="Volatility")
     ax.scatter(spikes[spikes["is_spike"]].index, spikes[spikes["is_spike"]]["volatility_abs"], color='red', s=30, label="Volatility Spike")
@@ -187,16 +184,12 @@ def generate_visuals():
     plt.tight_layout()
     plt.savefig("/opt/airflow/data/plots/volatility_spikes.png")
     plt.close()
-    
-    
-    # Weekly volume plot 
-    weekly = pd.read_csv("/opt/airflow/data/views/weekly_summary.csv")
+
+    # Weekly Volume
+    weekly = pd.read_csv("/opt/airflow/data/views/weekly_summary.csv", parse_dates=["date"], index_col="date")
     logging.info(f"Available columns in weekly: {weekly.columns.tolist()}")
-    date_col = weekly.columns[0] 
-    weekly[date_col] = pd.to_datetime(weekly[date_col])
-    weekly = weekly.set_index(date_col)
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.bar(weekly.index, weekly["volume_sum"], width=5) 
+    ax.bar(weekly.index, weekly["volume_sum"], width=5)
     ax.xaxis.set_major_locator(mdates.YearLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax.set_title("Continuous Weekly Volume")
@@ -207,15 +200,10 @@ def generate_visuals():
     plt.tight_layout()
     plt.savefig("/opt/airflow/data/plots/weekly_volume.png")
     plt.close()
-    
-    
-    # RSI
-    daily = pd.read_csv("/opt/airflow/data/views/daily_trend.csv")
-    logging.info(f"Available columns in daily (RSI): {daily.columns.tolist()}")
 
-    date_col = daily.columns[0] 
-    daily[date_col] = pd.to_datetime(daily[date_col])
-    daily = daily.set_index(date_col)
+    # RSI Zones
+    daily = pd.read_csv("/opt/airflow/data/views/daily_trend.csv", parse_dates=["date"], index_col="date")
+    logging.info(f"Available columns in daily (RSI): {daily.columns.tolist()}")
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(daily.index, daily["rsi_14"], label="RSI(14)")
     ax.axhline(y=70, color='r', linestyle='-', alpha=0.3)
@@ -234,6 +222,7 @@ def generate_visuals():
     plt.tight_layout()
     plt.savefig("/opt/airflow/data/plots/rsi_zones.png")
     plt.close()
+
 
 def create_target():
     logging.info("Creating target")
