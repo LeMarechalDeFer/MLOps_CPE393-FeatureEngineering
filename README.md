@@ -1,30 +1,11 @@
-# MLOps_CPE393-FeatureEngineering
+# CPE393 MLOps Lab – Feature Engineering Pipeline
 
+## 1. Project Overview
 
-Lab
-• Work on your own dataset
-• Discuss with your team 2-3 questions about the data
-• Clean and engineer features if necessary
-• Build data view to address those questions
-• Implement them as the workflow in Airflow (each 
-transformation operation should be represented as an 
-operator)
-• Capture the airflow graph, save as PDF and upload to LEB2
+**Dataset**: Taiwan Semiconductor Manufacturing Company (TSMC) historical prices
+File: `TSM_1997-10-08_2025-04-22.csv` (≈ 70 000 rows)
+Columns: `date`, `open`, `high`, `low`, `close`, `adj_close`, `volume`
 
+**Goal**: Build an Airflow-orchestrated workflow that cleans the data, engineers new features, and produces analytical views answering two–three business-driven questions.
 
-You need to set the following environment variables to run the airflow server:
-AIRFLOW_UID (add the user id of your linux user (id -u))
-AIRFLOW_IMAGE_NAME (apache/airflow:3.0.0)
-_AIRFLOW_WWW_USER_USERNAME
-_AIRFLOW_WWW_USER_PASSWORD
-
-
-You can admin the airflow and flower dashboard at:
-http://localhost:5555/
-http://localhost:8080/
-
-
-
-
-
-
+---
