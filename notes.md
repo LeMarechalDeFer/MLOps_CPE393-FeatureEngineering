@@ -17,9 +17,20 @@ _AIRFLOW_WWW_USER_USERNAME
 _AIRFLOW_WWW_USER_PASSWORD
 
 
+
 You can admin the airflow and flower dashboard at:
 http://localhost:5555/
 http://localhost:8080/
+
+
+airflow is a tool to build a pipeline for data engineering and machine learning engineering
+but the real interest of airflow is when :
+- your pipeline is not linear
+- you need to have continuous data ingestion
+
+
+
+
 
 
 
