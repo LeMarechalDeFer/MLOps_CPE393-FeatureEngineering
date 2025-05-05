@@ -1,8 +1,0 @@
-{"timestamp":"2025-05-05T23:07:53.886849","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
-{"timestamp":"2025-05-05T23:07:53.887483","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/tsmc_improved_pipeline.py","logger":"airflow.models.dagbag.DagBag"}
-{"timestamp":"2025-05-05T23:07:55.057339","level":"info","event":"Generating visuals","logger":"root"}
-{"timestamp":"2025-05-05T23:07:55.280758","level":"info","event":"Available columns in daily: ['close', 'ma_close_30d', 'rsi_14']","logger":"root"}
-{"timestamp":"2025-05-05T23:07:56.372197","level":"info","event":"Available columns in spikes: ['volatility_abs', 'is_spike']","logger":"root"}
-{"timestamp":"2025-05-05T23:07:57.037682","level":"info","event":"Available columns in weekly: ['close_first', 'close_last', 'close_mean', 'volume_sum', 'volatility_abs_max']","logger":"root"}
-{"timestamp":"2025-05-05T23:07:58.946482","level":"info","event":"Available columns in daily (RSI): ['close', 'ma_close_30d', 'rsi_14']","logger":"root"}
-{"timestamp":"2025-05-05T23:07:59.960239","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

@@ -32,10 +32,10 @@ header-includes:
 
 ![Menu Screenshot](./menu.png)
 
-![Ingestion Logs](./logs/ingestlogs.png)
-![Cleaning Logs](./logs/cleanlogs.png)
-![Feature Engineering Logs](./logs/featureengineeringlogs.png)
-![Build Views Logs](./logs/buildviewslogs.png)
-![Generate Visuals Logs](./logs/generatevisualslogs.png)
-![Create Target Logs](./logs/createtargetlogs.png)
-![Export CSV Logs](./logs/exportlogs.png)
+![Ingestion Logs](./logsHW/ingestlogs.png)
+![Cleaning Logs](./logsHW/cleanlogs.png)
+![Feature Engineering Logs](./logsHW/featureengineeringlogs.png)
+![Build Views Logs](./logsHW/buildviewslogs.png)
+![Generate Visuals Logs](./logsHW/generatevisualslogs.png)
+![Create Target Logs](./logsHW/createtargetlogs.png)
+![Export CSV Logs](./logsHW/exportlogs.png)

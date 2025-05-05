@@ -1,4 +1,0 @@
-{"timestamp":"2025-05-05T14:21:35.944749","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
-{"timestamp":"2025-05-05T14:21:35.953407","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/tsmc_improved_pipeline.py","logger":"airflow.models.dagbag.DagBag"}
-{"timestamp":"2025-05-05T14:21:38.383204","level":"info","event":"generated new fontManager","logger":"matplotlib.font_manager"}
-{"timestamp":"2025-05-05T14:21:39.793315","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

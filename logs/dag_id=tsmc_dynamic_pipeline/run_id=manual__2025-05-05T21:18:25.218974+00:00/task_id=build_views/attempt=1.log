@@ -1,6 +1,0 @@
-{"timestamp":"2025-05-05T21:18:36.660955","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
-{"timestamp":"2025-05-05T21:18:36.661505","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/tsmc_pipeline_yfinance.py","logger":"airflow.models.dagbag.DagBag"}
-{"timestamp":"2025-05-05T21:18:37.914883","level":"info","event":"Building views","logger":"root"}
-{"timestamp":"2025-05-05T21:18:37.961707","level":"info","event":"Colonnes disponibles: ['date', 'open', 'high', 'low', 'close', 'adj_close', 'volume']","logger":"root"}
-{"timestamp":"2025-05-05T21:18:38.042006","level":"warning","event":"Colonne 'volatility_abs' non disponible pour la vue des pics de volatilité","logger":"root"}
-{"timestamp":"2025-05-05T21:18:38.174279","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

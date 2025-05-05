@@ -1,6 +1,0 @@
-{"timestamp":"2025-05-05T21:29:18.863179","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
-{"timestamp":"2025-05-05T21:29:18.864693","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/tsmc_pipeline_yfinance.py","logger":"airflow.models.dagbag.DagBag"}
-{"timestamp":"2025-05-05T21:29:20.526332","level":"info","event":"Generating visuals","logger":"root"}
-{"timestamp":"2025-05-05T21:29:20.543259","level":"warning","event":"Colonne 'date' non trouvée dans daily_trend.csv","logger":"root"}
-{"timestamp":"2025-05-05T21:29:21.128189","level":"warning","event":"Colonne 'date' non trouvée dans weekly_summary.csv","logger":"root"}
-{"timestamp":"2025-05-05T21:29:21.129640","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
